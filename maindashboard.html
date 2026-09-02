@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>जिल्हाधिकारी कार्यालय सिंधुदुर्ग पुर्वथा शाखा</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="header-left">
+                <img src="./sindhudurg_logo.png" alt="सिंधुदुर्ग जिल्हा लोगो" class="logo">
+                <div class="header-text">
+                    <h1>जिल्हाधिकारी कार्यालय सिंधुदुर्ग पुरवठा शाखा</h1>
+                    <p>महाराष्ट्र शासन</p>
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="header-info">
+                    <div class="last-updated">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>अद्यतनित: <span id="todayDate"></span></span>
+                    </div>
+                    <a href="https://sindhudurg.nic.in/" target="_blank" class="home-btn">
+                        <i class="fas fa-home"></i>
+                        <span>मुख्यपृष्ठ</span>
+                    </a>
+                </div>
+                <!-- <button class="nav-toggle" id="navToggle">
+                    <i class="fas fa-bars"></i>
+                </button> -->
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="navigation" id="navigation">
+        <ul class="nav-list">
+            <li class="nav-item active">
+                <a href="#main-dashboard" class="nav-link">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>मुख्य डॅशबोर्ड</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#ekyc-status" class="nav-link">
+                    <i class="fas fa-chart-pie"></i>
+                    <span>eKYC स्थिती</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#ekyc-table" class="nav-link">
+                    <i class="fas fa-table"></i>
+                    <span>तालुकानुसार eKYC</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#fair-price" class="nav-link">
+                    <i class="fas fa-store"></i>
+                    <span>ऑनलाईन फेअर प्राईस शॉप</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#warehouse-capacity" class="nav-link">
+                    <i class="fas fa-warehouse"></i>
+                    <span>गोदाम क्षमता</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#ration-card-status" class="nav-link">
+                    <i class="fas fa-id-card"></i>
+                    <span>शिधापत्रिका स्थिती</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Main Dashboard Section -->
+        <section id="main-dashboard" class="dashboard-section active">
+            <div class="section-header">
+                <h2>अवलोकन डॅशबोर्ड</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>एकूण eKYC</h3>
+                            <p class="stat-number" id="totalEkyc">0</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>पूर्ण झाले</h3>
+                            <p class="stat-number" id="completedEkyc">0</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>प्रलंबित</h3>
+                            <p class="stat-number" id="pendingEkyc">0</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-store"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>ऑनलाईन फेअर प्राईस शॉप</h3>
+                            <p class="stat-number" id="totalShops">0</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="dashboard-card">
+                    <h3>शीघ्र कृती</h3>
+                    <div class="action-buttons">
+                        <button class="action-btn" onclick="navigateToSection('ekyc-status')">
+                            <i class="fas fa-chart-pie"></i>
+                            eKYC स्थिती पहा
+                        </button>
+                        <button class="action-btn" onclick="navigateToSection('fair-price')">
+                            <i class="fas fa-store"></i>
+                            ऑनलाईन फेअर प्राईस शॉप
+                        </button>
+                        <button class="action-btn" onclick="navigateToSection('warehouse-capacity')">
+                            <i class="fas fa-warehouse"></i>
+                            गोदाम क्षमता
+                        </button>
+                        <button class="action-btn" onclick="navigateToSection('ration-card-status')">
+                            <i class="fas fa-id-card"></i>
+                            शिधापत्रिका स्थिती
+                        </button>
+                    </div>
+                </div>
+
+                <div class="dashboard-card">
+                    <h3>विभागीय माहिती</h3>
+                    <div class="department-info">
+                        <p><strong>विभाग:</strong> जिल्हाधिकारी कार्यालय</p>
+                        <p><strong>जिल्हा:</strong> सिंधुदुर्ग</p>
+                        <p><strong>राज्य:</strong> महाराष्ट्र</p>
+                        <p><strong>कार्यक्षेत्र:</strong> ८ तालुके</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- eKYC Status Section -->
+        <section id="ekyc-status" class="dashboard-section">
+            <div class="section-header">
+                <h2>eKYC स्थिती: प्रलंबित विरुद्ध पूर्ण झाले</h2>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="chart-container">
+                    <div class="chart-card">
+                        <h3>eKYC पूर्णता अवलोकन</h3>
+                        <div class="chart-wrapper">
+                            <canvas id="ekycPieChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chart-container full-width">
+                    <div class="chart-card">
+                        <h3>तालुकानुसार तुलना</h3>
+                        <div class="chart-wrapper">
+                            <canvas id="ekycBarChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- eKYC Table Section -->
+        <section id="ekyc-table" class="dashboard-section">
+            <div class="section-header">
+                <h2>तालुकानुसार eKYC स्थिती</h2>
+            </div>
+
+            <div class="table-container">
+                <div class="table-card">
+                    <div class="table-wrapper">
+                        <table class="data-table" id="ekycStatusTable">
+                            <thead>
+                                <tr>
+                                    <th>तालुका</th>
+                                    <th>एकूण</th>
+                                    <th>पूर्ण झाले</th>
+                                    <th>प्रलंबित</th>
+                                    <th>पूर्णता दर</th>
+                                </tr>
+                            </thead>
+                            <tbody id="ekycStatusTableBody">
+                                <!-- Data will be populated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fair Price Shop Section -->
+        <section id="fair-price" class="dashboard-section">
+            <div class="section-header">
+                <h2>तालुकानुसार ऑनलाईन फेअर प्राईस शॉप डॅशबोर्ड</h2>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="chart-container">
+                    <div class="chart-card">
+                        <h3>ऑनलाईन फेअर प्राईस शॉप वितरण</h3>
+                        <div class="chart-wrapper">
+                            <canvas id="fairPriceChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chart-container">
+                    <div class="chart-card">
+                        <h3>तालुकानुसार ऑनलाईन दुकाने</h3>
+                        <div class="chart-wrapper">
+                            <canvas id="shopPerformanceChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-store"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>एकूण ऑनलाईन दुकाने</h3>
+                            <p class="stat-number" id="totalShopCount">0</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>सक्रिय दुकाने</h3>
+                            <p class="stat-number" id="activeShopCount">0</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>कार्यक्षेत्र</h3>
+                            <p class="stat-number">८ तालुके</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Warehouse Capacity Section -->
+        <section id="warehouse-capacity" class="dashboard-section">
+            <div class="section-header">
+                <h2>गोदाम क्षमता डॅशबोर्ड</h2>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-warehouse"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>एकूण गोदामे</h3>
+                        <p class="stat-number" id="totalWarehouses">10</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-weight"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>एकूण क्षमता</h3>
+                        <p class="stat-number" id="totalCapacity">8,460</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="chart-container">
+                    <div class="chart-card">
+                        <h3>तालुकानुसार गोदाम क्षमता (मे.टन)</h3>
+                        <div class="chart-wrapper">
+                            <canvas id="warehouseCapacityChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="table-container full-width">
+                    <div class="table-card">
+                        <h3>गोदामे व क्षमता तपशील</h3>
+                        <div class="table-wrapper">
+                            <table class="data-table" id="warehouseTable">
+                                <thead>
+                                    <tr>
+                                        <th>अ.क्र.</th>
+                                        <th>गोदामाचे नाव</th>
+                                        <th>क्षमता (मे.टन)</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="warehouseTableBody">
+                                    <!-- Data will be populated by JavaScript -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ration Card Status Section -->
+        <section id="ration-card-status" class="dashboard-section">
+            <div class="section-header">
+                <h2>शिधापत्रिका स्थिती डॅशबोर्ड</h2>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-id-card"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>एकूण शिधापत्रिका</h3>
+                        <p class="stat-number" id="totalRationCards">2,29,982</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-content" style="display: grid; grid-template-columns: 1fr; gap: 2rem;">
+                <div class="left-column" style="display: flex; flex-direction: column; gap: 2rem;">
+                    <div class="chart-container">
+                        <div class="chart-card">
+                            <h3>शिधापत्रिका लाभार्थी वितरण</h3>
+                            <div class="chart-wrapper">
+                                <canvas id="foodSecurityChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="table-container">
+                        <div class="table-card">
+                            <h3>तालुकानुसार शिधापत्रिका स्थिती</h3>
+                            <div class="table-wrapper">
+                                <table class="data-table" id="rationCardTalukaTable">
+                                    <thead>
+                                        <tr>
+                                            <th>S. No.</th>
+                                            <th>TFSO</th>
+                                            <th>AAY RCs</th>
+                                            <th>AAY Units</th>
+                                            <th>APL White RCs</th>
+                                            <th>APL White Units</th>
+                                            <th>PHH RCs</th>
+                                            <th>PHH Units</th>
+                                            <th>NPH RCs</th>
+                                            <th>NPH Units</th>
+                                            <th>Total RCs</th>
+                                            <th>Total Units</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="rationCardTalukaTableBody">
+                                        <!-- Data will be populated by JavaScript -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>© २०२४ जिल्हाधिकारी कार्यालय सिंधुदुर्ग पुर्वथा शाखा. सर्व हक्क सुरक्षित.</p>
+            <p>महाराष्ट्र शासन द्वारे संचलित</p>
+        </div>
+    </footer>
+
+    <!-- Admin Password Login Modal -->
+    <div class="modal-overlay" id="adminLoginModal">
+        <div class="modal-card" style="max-width: 450px;">
+            <div class="modal-header">
+                <h3><i class="fas fa-user-shield"></i> एडमिन लॉगिन (प्रशासकीय प्रवेश)</h3>
+                <button class="modal-close-btn" onclick="closeAdminLoginModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="admin-login-box">
+                    <p>प्रशासकीय पॅनेलमध्ये प्रवेश करण्यासाठी पासवर्ड प्रविष्ट करा.</p>
+                    <div class="admin-input-group">
+                        <label for="adminPasswordInput">प्रशासक पासवर्ड (Password):</label>
+                        <input type="password" id="adminPasswordInput" placeholder="पासवर्ड प्रविष्ट करा..." onkeyup="handlePasswordKeyUp(event)">
+                        <div class="login-error" id="adminLoginError">अवैध पासवर्ड! कृपया पुन्हा प्रयत्न करा.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-admin btn-secondary" onclick="closeAdminLoginModal()">रद्द करा</button>
+                <button class="btn-admin btn-primary" onclick="verifyAdminPassword()"><i class="fas fa-unlock"></i> लॉगिन करा</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Management Panel Modal -->
+    <div class="modal-overlay" id="adminPanelModal">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3><i class="fas fa-tools"></i> डॅशबोर्ड प्रशासन व माहिती व्यवस्थापन (CRUD)</h3>
+                <button class="modal-close-btn" onclick="closeAdminPanelModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <!-- Admin Tabs -->
+                <div class="admin-tabs">
+                    <button class="admin-tab-btn active" onclick="switchAdminTab('admin-ekyc')">
+                        <i class="fas fa-users-cog"></i> eKYC माहिती
+                    </button>
+                    <button class="admin-tab-btn" onclick="switchAdminTab('admin-ration')">
+                        <i class="fas fa-id-card"></i> शिधापत्रिका माहिती
+                    </button>
+                    <button class="admin-tab-btn" onclick="switchAdminTab('admin-fps')">
+                        <i class="fas fa-store"></i> ऑनलाईन दुकाने
+                    </button>
+                    <button class="admin-tab-btn" onclick="switchAdminTab('admin-warehouse')">
+                        <i class="fas fa-warehouse"></i> गोदाम क्षमता
+                    </button>
+                    <button class="admin-tab-btn" onclick="switchAdminTab('admin-system')">
+                        <i class="fas fa-cogs"></i> डेटा रीसेट व सिस्टीम
+                    </button>
+                </div>
+
+                <!-- Tab 1: eKYC CRUD -->
+                <div class="admin-tab-content active" id="admin-ekyc">
+                    <div class="admin-crud-header">
+                        <h4>तालुकानिहाय eKYC माहिती संपादन (CRUD)</h4>
+                        <div class="crud-btn-group">
+                            <button class="btn-admin btn-success" onclick="addAdminEkycRow()"><i class="fas fa-plus"></i> नवीन तालुका जोडा</button>
+                        </div>
+                    </div>
+                    <div class="admin-table-wrapper">
+                        <table class="admin-edit-table" id="adminEkycEditTable">
+                            <thead>
+                                <tr>
+                                    <th>तालुका</th>
+                                    <th>एकूण लाभार्थी</th>
+                                    <th>पूर्ण झालेले eKYC</th>
+                                    <th>प्रलंबित eKYC</th>
+                                    <th style="width: 80px;">कृती</th>
+                                </tr>
+                            </thead>
+                            <tbody id="adminEkycTableBody">
+                                <!-- Populated dynamically by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Tab 2: Ration Cards CRUD -->
+                <div class="admin-tab-content" id="admin-ration">
+                    <div class="admin-crud-header">
+                        <h4>तालुकानिहाय शिधापत्रिका व युनिट्स माहिती संपादन</h4>
+                        <div class="crud-btn-group">
+                            <button class="btn-admin btn-success" onclick="addAdminRationRow()"><i class="fas fa-plus"></i> नवीन TFSO तालुका जोडा</button>
+                        </div>
+                    </div>
+                    <div class="admin-table-wrapper">
+                        <table class="admin-edit-table" id="adminRationEditTable">
+                            <thead>
+                                <tr>
+                                    <th>TFSO तालुका</th>
+                                    <th>AAY RCs</th>
+                                    <th>AAY Units</th>
+                                    <th>APL White RCs</th>
+                                    <th>APL White Units</th>
+                                    <th>PHH RCs</th>
+                                    <th>PHH Units</th>
+                                    <th>NPH RCs</th>
+                                    <th>NPH Units</th>
+                                    <th style="width: 60px;">कृती</th>
+                                </tr>
+                            </thead>
+                            <tbody id="adminRationTableBody">
+                                <!-- Populated dynamically by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Tab 3: Fair Price Shops CRUD -->
+                <div class="admin-tab-content" id="admin-fps">
+                    <div class="admin-crud-header">
+                        <h4>ऑनलाईन फेअर प्राईस शॉप माहिती</h4>
+                    </div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                        <div class="admin-input-group">
+                            <label>एकूण दुकाने (Total Shops):</label>
+                            <input type="number" id="adminFpsTotal" value="461">
+                        </div>
+                        <div class="admin-input-group">
+                            <label>सक्रिय दुकाने (Active Shops):</label>
+                            <input type="number" id="adminFpsActive" value="461">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab 4: Warehouse Capacity CRUD -->
+                <div class="admin-tab-content" id="admin-warehouse">
+                    <div class="admin-crud-header">
+                        <h4>गोदाम क्षमता संपादन (CRUD)</h4>
+                        <div class="crud-btn-group">
+                            <button class="btn-admin btn-success" onclick="addAdminWarehouseRow()"><i class="fas fa-plus"></i> नवीन गोदाम जोडा</button>
+                        </div>
+                    </div>
+                    <div class="admin-table-wrapper">
+                        <table class="admin-edit-table" id="adminWarehouseEditTable">
+                            <thead>
+                                <tr>
+                                    <th style="width: 60px;">अ.क्र.</th>
+                                    <th>गोदामाचे नाव</th>
+                                    <th>क्षमता (मे.टन)</th>
+                                    <th style="width: 80px;">कृती</th>
+                                </tr>
+                            </thead>
+                            <tbody id="adminWarehouseTableBody">
+                                <!-- Populated dynamically by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Tab 5: System & Data Reset -->
+                <div class="admin-tab-content" id="admin-system">
+                    <div class="admin-crud-header">
+                        <h4><i class="fab fa-github"></i> GitHub ऑटो-सिंक व लाईव्ह पब्लिश (Auto-Deploy)</h4>
+                    </div>
+
+                    <div style="background: #f0fdf4; border: 1px solid #bbf7d0; padding: 1.25rem; border-radius: 8px; margin-bottom: 1.5rem;">
+                        <h5 style="color: #166534; margin-top: 0; font-size: 1.05rem;"><i class="fas fa-cloud-upload-alt"></i> GitHub ऑटो-कमिट कॉन्फिगरेशन</h5>
+                        <p style="color: #15803d; font-size: 0.88rem; margin-bottom: 1rem;">
+                            इथे तुमची GitHub रिपॉझिटरी व पर्सनल ॲक्सेस टोकन (PAT) कॉन्फिगर करा. बदल जतन केल्यानंतर **'Publish Live to GitHub'** क्लिक करताच GitHub ऑटोमॅटिकली रिपॉझिटरी अपडेट करेल व सर्व व्हिजिटर्ससाठी वेबसाईट लाईव्ह पब्लिश करेल!
+                        </p>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                            <div class="admin-input-group">
+                                <label for="githubRepoInput">GitHub Repository (Username/Repo):</label>
+                                <input type="text" id="githubRepoInput" placeholder="उदा: username/supply-dashboard">
+                            </div>
+                            <div class="admin-input-group">
+                                <label for="githubBranchInput">Branch Name:</label>
+                                <input type="text" id="githubBranchInput" value="main" placeholder="main">
+                            </div>
+                        </div>
+                        <div class="admin-input-group">
+                            <label for="githubTokenInput">GitHub Personal Access Token (PAT):</label>
+                            <input type="password" id="githubTokenInput" placeholder="ghp_... किंवा github_pat_...">
+                        </div>
+                        <div style="display: flex; gap: 0.75rem; margin-top: 1rem;">
+                            <button class="btn-admin btn-secondary" onclick="saveGitHubConfig()"><i class="fas fa-key"></i> टोकन जतन करा</button>
+                            <button class="btn-admin btn-success" onclick="publishToGitHub()"><i class="fas fa-paper-plane"></i> GitHub वर लाईव्ह पब्लिश करा</button>
+                        </div>
+                    </div>
+
+                    <div style="background: #f8fafc; border: 1px solid #e2e8f0; padding: 1.25rem; border-radius: 8px; margin-bottom: 1.5rem;">
+                        <h5 style="color: #334155; margin-top: 0;"><i class="fas fa-file-download"></i> data.json बॅकअप डाऊनलोड करा</h5>
+                        <p style="color: #64748b; font-size: 0.88rem;">सध्याचा अद्ययावत डेटा JSON फॉरमॅटमध्ये डाऊनलोड करा.</p>
+                        <button class="btn-admin btn-primary" onclick="downloadJsonData()"><i class="fas fa-download"></i> Download data.json</button>
+                    </div>
+
+                    <div style="background: #fff5f5; border: 1px solid #fed7d7; padding: 1.25rem; border-radius: 8px; margin-bottom: 1rem;">
+                        <h5 style="color: #c53030; margin-top: 0;"><i class="fas fa-exclamation-triangle"></i> मूळ डेटा पुनर्संचयित करा (Reset to Default)</h5>
+                        <p style="color: #742a2a; font-size: 0.9rem;">सर्व बदललेले अपडेट्स हटवून मूळ excel/data.txt डेटा पुनर्स्थापित करा.</p>
+                        <button class="btn-admin btn-danger" onclick="resetAdminData()"><i class="fas fa-undo"></i> मूळ स्थितीत रीसेट करा</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn-admin btn-secondary" onclick="closeAdminPanelModal()">बंद करा</button>
+                <button class="btn-admin btn-primary" onclick="saveAdminChanges()"><i class="fas fa-save"></i> बदल जतन करा (Save Changes)</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+
+    <script src="./script.js"></script>
+</body>
+</html>
