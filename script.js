@@ -1192,13 +1192,20 @@ function resetAdminData() {
 // --- GITHUB AUTO-DEPLOY & SYNC INTEGRATION ---
 function loadGitHubConfig() {
     const saved = localStorage.getItem('github_repo_config');
+    const repoInput = document.getElementById('githubRepoInput');
+    const branchInput = document.getElementById('githubBranchInput');
+    const tokenInput = document.getElementById('githubTokenInput');
+
     if (saved) {
         try {
             const cfg = JSON.parse(saved);
-            if (document.getElementById('githubRepoInput')) document.getElementById('githubRepoInput').value = cfg.repo || '';
-            if (document.getElementById('githubBranchInput')) document.getElementById('githubBranchInput').value = cfg.branch || 'main';
-            if (document.getElementById('githubTokenInput')) document.getElementById('githubTokenInput').value = cfg.token || '';
+            if (repoInput) repoInput.value = cfg.repo || 'rohitghadi25122004/OROSDASHBOARDGOVERNMENT';
+            if (branchInput) branchInput.value = cfg.branch || 'main';
+            if (tokenInput) tokenInput.value = cfg.token || '';
         } catch (e) {}
+    } else {
+        if (repoInput) repoInput.value = 'rohitghadi25122004/OROSDASHBOARDGOVERNMENT';
+        if (branchInput) branchInput.value = 'main';
     }
 }
 
