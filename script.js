@@ -230,14 +230,19 @@ function navigateToSection(sectionId) {
 }
 
 function updateDateTime() {
-    const now = new Date();
-    const options = { 
-        year: 'numeric', 
-        month: 'long', 
-        day: 'numeric'
-    };
-    const todayDate = now.toLocaleDateString('mr-IN', options);
-    document.getElementById('todayDate').textContent = todayDate;
+    const info = (sampleData && sampleData.siteInfo) || {};
+    if (info.lastUpdatedDate && info.lastUpdatedDate.trim() !== '') {
+        document.getElementById('todayDate').textContent = info.lastUpdatedDate.trim();
+    } else {
+        const now = new Date();
+        const options = { 
+            year: 'numeric', 
+            month: 'long', 
+            day: 'numeric'
+        };
+        const todayDate = now.toLocaleDateString('mr-IN', options);
+        document.getElementById('todayDate').textContent = todayDate;
+    }
 }
 
 // Main Dashboard Functions
@@ -997,6 +1002,7 @@ function openAdminPanelModal() {
     document.getElementById('adminFpsActive').value = sampleData.fairPriceShops.active;
 
     const info = (sampleData && sampleData.siteInfo) || (defaultSampleData && defaultSampleData.siteInfo) || {};
+    if (document.getElementById('adminHeaderDate')) document.getElementById('adminHeaderDate').value = info.lastUpdatedDate || '';
     if (document.getElementById('adminFooterYear')) document.getElementById('adminFooterYear').value = info.footerYear || '२०२६';
     if (document.getElementById('adminFooterText')) document.getElementById('adminFooterText').value = info.footerText || 'जिल्हाधिकारी कार्यालय सिंधुदुर्ग पुरवठा शाखा. सर्व हक्क सुरक्षित.';
     if (document.getElementById('adminFooterSubText')) document.getElementById('adminFooterSubText').value = info.footerSubText || 'महाराष्ट्र शासन द्वारे संचलित';
@@ -1226,11 +1232,13 @@ function saveAdminChanges() {
     sampleData.warehouseAndFoodSecurity.totalCapacity = totWhCap;
 
     // 5. Site Info & Footer Text
+    const headerDateVal = document.getElementById('adminHeaderDate') ? document.getElementById('adminHeaderDate').value.trim() : '';
     const yrVal = document.getElementById('adminFooterYear') ? document.getElementById('adminFooterYear').value.trim() : '२०२६';
     const txtVal = document.getElementById('adminFooterText') ? document.getElementById('adminFooterText').value.trim() : 'जिल्हाधिकारी कार्यालय सिंधुदुर्ग पुरवठा शाखा. सर्व हक्क सुरक्षित.';
     const subVal = document.getElementById('adminFooterSubText') ? document.getElementById('adminFooterSubText').value.trim() : 'महाराष्ट्र शासन द्वारे संचलित';
 
     sampleData.siteInfo = {
+        lastUpdatedDate: headerDateVal,
         footerYear: yrVal || '२०२६',
         footerText: txtVal || 'जिल्हाधिकारी कार्यालय सिंधुदुर्ग पुरवठा शाखा. सर्व हक्क सुरक्षित.',
         footerSubText: subVal || 'महाराष्ट्र शासन द्वारे संचलित'
