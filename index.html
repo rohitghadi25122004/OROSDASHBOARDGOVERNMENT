@@ -554,43 +554,24 @@
                 <!-- Tab 5: System & Data Reset -->
                 <div class="admin-tab-content" id="admin-system">
                     <div class="admin-crud-header">
-                        <h4><i class="fab fa-github"></i> GitHub ऑटो-सिंक व लाईव्ह पब्लिश (Auto-Deploy)</h4>
+                        <h4><i class="fab fa-github"></i> लाईव्ह अपडेट कॉन्फिगरेशन (GitHub Token)</h4>
                     </div>
 
                     <div style="background: #f0fdf4; border: 1px solid #bbf7d0; padding: 1.25rem; border-radius: 8px; margin-bottom: 1.5rem;">
-                        <h5 style="color: #166534; margin-top: 0; font-size: 1.05rem;"><i class="fas fa-cloud-upload-alt"></i> GitHub ऑटो-कमिट कॉन्फिगरेशन</h5>
+                        <h5 style="color: #166534; margin-top: 0; font-size: 1rem;"><i class="fas fa-key"></i> GitHub Access Token</h5>
                         <p style="color: #15803d; font-size: 0.88rem; margin-bottom: 1rem;">
-                            इथे तुमची GitHub रिपॉझिटरी व पर्सनल ॲक्सेस टोकन (PAT) कॉन्फिगर करा. बदल जतन केल्यानंतर **'Publish Live to GitHub'** क्लिक करताच GitHub ऑटोमॅटिकली रिपॉझिटरी अपडेट करेल व सर्व व्हिजिटर्ससाठी वेबसाईट लाईव्ह पब्लिश करेल!
+                            इथे फक्त तुमचा <b>GitHub Access Token</b> पेस्ट करा. एकदा पेस्ट केल्यानंतर, तुम्ही जेव्हा जेव्हा <b>'बदल जतन करा (Save Changes)'</b> क्लिक कराल, तेव्हा सर्व बदल आपोआप लाईव्ह वेबसाईटवर अपडेट होतील!
                         </p>
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-                            <div class="admin-input-group">
-                                <label for="githubRepoInput">GitHub Repository (Username/Repo):</label>
-                                <input type="text" id="githubRepoInput" value="rohitghadi25122004/OROSDASHBOARDGOVERNMENT" placeholder="rohitghadi25122004/OROSDASHBOARDGOVERNMENT">
-                            </div>
-                            <div class="admin-input-group">
-                                <label for="githubBranchInput">Branch Name:</label>
-                                <input type="text" id="githubBranchInput" value="main" placeholder="main">
-                            </div>
-                        </div>
                         <div class="admin-input-group">
-                            <label for="githubTokenInput">GitHub Personal Access Token (PAT):</label>
+                            <label for="githubTokenInput">GitHub Access Token:</label>
                             <input type="password" id="githubTokenInput" placeholder="ghp_... किंवा github_pat_...">
                         </div>
-                        <div style="display: flex; gap: 0.75rem; margin-top: 1rem;">
-                            <button class="btn-admin btn-secondary" onclick="saveGitHubConfig()"><i class="fas fa-key"></i> टोकन जतन करा</button>
-                            <button class="btn-admin btn-success" onclick="publishToGitHub()"><i class="fas fa-paper-plane"></i> GitHub वर लाईव्ह पब्लिश करा</button>
-                        </div>
-                    </div>
-
-                    <div style="background: #f8fafc; border: 1px solid #e2e8f0; padding: 1.25rem; border-radius: 8px; margin-bottom: 1.5rem;">
-                        <h5 style="color: #334155; margin-top: 0;"><i class="fas fa-file-download"></i> data.json बॅकअप डाऊनलोड करा</h5>
-                        <p style="color: #64748b; font-size: 0.88rem;">सध्याचा अद्ययावत डेटा JSON फॉरमॅटमध्ये डाऊनलोड करा.</p>
-                        <button class="btn-admin btn-primary" onclick="downloadJsonData()"><i class="fas fa-download"></i> Download data.json</button>
+                        <button class="btn-admin btn-success" onclick="saveGitHubConfig()"><i class="fas fa-save"></i> टोकन जतन करा (Save Token)</button>
                     </div>
 
                     <div style="background: #fff5f5; border: 1px solid #fed7d7; padding: 1.25rem; border-radius: 8px; margin-bottom: 1rem;">
                         <h5 style="color: #c53030; margin-top: 0;"><i class="fas fa-exclamation-triangle"></i> मूळ डेटा पुनर्संचयित करा (Reset to Default)</h5>
-                        <p style="color: #742a2a; font-size: 0.9rem;">सर्व बदललेले अपडेट्स हटवून मूळ excel/data.txt डेटा पुनर्स्थापित करा.</p>
+                        <p style="color: #742a2a; font-size: 0.9rem;">सर्व बदललेले अपडेट्स हटवून मूळ डेटा पुनर्स्थापित करा.</p>
                         <button class="btn-admin btn-danger" onclick="resetAdminData()"><i class="fas fa-undo"></i> मूळ स्थितीत रीसेट करा</button>
                     </div>
                 </div>

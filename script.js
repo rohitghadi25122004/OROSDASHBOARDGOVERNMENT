@@ -1207,7 +1207,13 @@ function saveAdminChanges() {
     initializeDashboard();
     navigateToSection(currentSection);
     closeAdminPanelModal();
-    showNotification('डॅशबोर्ड डेटा यशस्वीरित्या बदलला व जतन केला!', 'success');
+    showNotification('डॅशबोर्ड डेटा बदल जतन केला!', 'success');
+
+    // Automatically Publish Live to GitHub if Token is present
+    const ghToken = getSavedGitHubToken();
+    if (ghToken) {
+        publishToGitHubSilently(ghToken);
+    }
 }
 
 // Reset Admin Data back to baseline default
@@ -1223,37 +1229,28 @@ function resetAdminData() {
 }
 
 // --- GITHUB AUTO-DEPLOY & SYNC INTEGRATION ---
-function loadGitHubConfig() {
-    const saved = localStorage.getItem('github_repo_config');
-    const repoInput = document.getElementById('githubRepoInput');
-    const branchInput = document.getElementById('githubBranchInput');
-    const tokenInput = document.getElementById('githubTokenInput');
+function getSavedGitHubToken() {
+    return localStorage.getItem('github_token') || '';
+}
 
-    if (saved) {
-        try {
-            const cfg = JSON.parse(saved);
-            if (repoInput) repoInput.value = cfg.repo || 'rohitghadi25122004/OROSDASHBOARDGOVERNMENT';
-            if (branchInput) branchInput.value = cfg.branch || 'main';
-            if (tokenInput) tokenInput.value = cfg.token || '';
-        } catch (e) {}
-    } else {
-        if (repoInput) repoInput.value = 'rohitghadi25122004/OROSDASHBOARDGOVERNMENT';
-        if (branchInput) branchInput.value = 'main';
+function loadGitHubConfig() {
+    const tokenInput = document.getElementById('githubTokenInput');
+    if (tokenInput) {
+        tokenInput.value = getSavedGitHubToken();
     }
 }
 
 function saveGitHubConfig() {
-    const repo = document.getElementById('githubRepoInput').value.trim();
-    const branch = document.getElementById('githubBranchInput').value.trim() || 'main';
-    const token = document.getElementById('githubTokenInput').value.trim();
+    const tokenInput = document.getElementById('githubTokenInput');
+    const token = tokenInput ? tokenInput.value.trim() : '';
 
-    if (!repo || !token) {
-        showNotification('कृपया Repository आणि Token दोनही प्रविष्ट करा.', 'error');
+    if (!token) {
+        showNotification('कृपया GitHub Token प्रविष्ट करा.', 'error');
         return;
     }
 
-    localStorage.setItem('github_repo_config', JSON.stringify({ repo, branch, token }));
-    showNotification('GitHub कॉन्फिगरेशन सुरक्षितपणे जतन केले!', 'success');
+    localStorage.setItem('github_token', token);
+    showNotification('GitHub Token सुरक्षितपणे जतन केला!', 'success');
 }
 
 function utf8ToBase64(str) {
@@ -1263,24 +1260,13 @@ function utf8ToBase64(str) {
     return btoa(binStr);
 }
 
-async function publishToGitHub() {
-    const repo = document.getElementById('githubRepoInput').value.trim();
-    const branch = document.getElementById('githubBranchInput').value.trim() || 'main';
-    const token = document.getElementById('githubTokenInput').value.trim();
-
-    if (!repo || !token) {
-        showNotification('कृपया आधी GitHub Repository (उदा. username/repo) आणि Token प्रविष्ट करा.', 'error');
-        return;
-    }
-
-    saveGitHubConfig();
-    showNotification('GitHub वर पब्लिश होत आहे, कृपया वाट पाहा...', 'success');
+async function publishToGitHubSilently(token) {
+    const repo = 'rohitghadi25122004/OROSDASHBOARDGOVERNMENT';
+    const branch = 'main';
+    const path = 'data.json';
+    const url = `https://api.github.com/repos/${repo}/contents/${path}`;
 
     try {
-        const path = 'data.json';
-        const url = `https://api.github.com/repos/${repo}/contents/${path}`;
-
-        // 1. Check if file already exists to obtain current SHA
         let currentSha = null;
         try {
             const getRes = await fetch(`${url}?ref=${branch}`, {
@@ -1293,11 +1279,8 @@ async function publishToGitHub() {
                 const fileData = await getRes.json();
                 currentSha = fileData.sha;
             }
-        } catch (err) {
-            console.warn('Could not fetch existing file SHA:', err);
-        }
+        } catch (err) {}
 
-        // 2. Prepare payload
         const jsonContent = JSON.stringify(sampleData, null, 2);
         const base64Content = utf8ToBase64(jsonContent);
 
@@ -1310,7 +1293,6 @@ async function publishToGitHub() {
             payload.sha = currentSha;
         }
 
-        // 3. Send PUT request to GitHub Contents API
         const putRes = await fetch(url, {
             method: 'PUT',
             headers: {
@@ -1322,26 +1304,13 @@ async function publishToGitHub() {
         });
 
         if (putRes.ok) {
-            showNotification('GitHub वर यशस्वीरित्या पब्लिश झाले! साईट ऑटो-बिल्ड होऊन थोड्याच वेळात लाईव्ह दिसेल.', 'success');
+            showNotification('बदल जतन झाले व GitHub वर लाईव्ह पब्लिश केले!', 'success');
         } else {
             const errJson = await putRes.json();
             console.error('GitHub API Error:', errJson);
-            showNotification(`GitHub त्रुटी: ${errJson.message || 'पब्लिश करू शकलो नाही.'}`, 'error');
+            showNotification(`GitHub पब्लिश त्रुटी: ${errJson.message || 'टोकन तपासा.'}`, 'error');
         }
     } catch (error) {
         console.error('Network Error publishing to GitHub:', error);
-        showNotification(`कनेक्शन त्रुटी: ${error.message}`, 'error');
     }
-}
-
-function downloadJsonData() {
-    const jsonStr = JSON.stringify(sampleData, null, 2);
-    const blob = new Blob([jsonStr], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'data.json';
-    a.click();
-    URL.revokeObjectURL(url);
-    showNotification('data.json बॅकअप यशस्वीरित्या डाऊनलोड झाला!', 'success');
 }
