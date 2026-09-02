@@ -869,10 +869,10 @@ let tapTimestamps = [];
 let logoTapTimestamps = [];
 
 function setupSecretAdminTrigger() {
-    // Method 1: Tapping the Logo 5 times
+    // Method 1: Tapping the Logo 5 times (Click & Touch for Android)
     const logoEl = document.querySelector('.logo');
     if (logoEl) {
-        logoEl.addEventListener('click', function(e) {
+        const handleLogoTap = function(e) {
             e.stopPropagation();
             if (window.getSelection) window.getSelection().removeAllRanges();
             const now = Date.now();
@@ -882,7 +882,10 @@ function setupSecretAdminTrigger() {
                 logoTapTimestamps = [];
                 openAdminPortal();
             }
-        });
+        };
+
+        logoEl.addEventListener('click', handleLogoTap);
+        logoEl.addEventListener('touchstart', handleLogoTap, { passive: true });
     }
 
     // Method 2: Keyboard Shortcut (Ctrl + Shift + A)
@@ -893,8 +896,8 @@ function setupSecretAdminTrigger() {
         }
     });
 
-    // Method 3: 5 Rapid taps anywhere on empty page space
-    document.addEventListener('click', function(e) {
+    // Method 3: 5 Rapid taps anywhere on empty page space (Click & Touch for Android)
+    const handleGlobalTap = function(e) {
         if (e.target.closest('.modal-card') || e.target.closest('.action-btn') || e.target.closest('button')) return;
         if (window.getSelection) window.getSelection().removeAllRanges();
 
@@ -906,7 +909,9 @@ function setupSecretAdminTrigger() {
             tapTimestamps = [];
             openAdminPortal();
         }
-    });
+    };
+
+    document.addEventListener('click', handleGlobalTap);
 }
 
 function openAdminPortal() {
