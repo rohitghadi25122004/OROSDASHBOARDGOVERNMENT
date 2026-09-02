@@ -38,6 +38,17 @@ body {
     position: sticky;
     top: 0;
     z-index: 100;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.logo {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.logo:active {
+    transform: scale(0.92);
 }
 
 .header-container {

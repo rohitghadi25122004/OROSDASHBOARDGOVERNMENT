@@ -862,23 +862,47 @@ function initializeFoodSecurityCharts() {
    ========================================================================== */
 
 let tapTimestamps = [];
+let logoTapTimestamps = [];
 
 function setupSecretAdminTrigger() {
-    const handleTap = function(e) {
-        if (e.target.closest('.modal-card')) return;
+    // Method 1: Tapping the Logo 5 times
+    const logoEl = document.querySelector('.logo');
+    if (logoEl) {
+        logoEl.addEventListener('click', function(e) {
+            e.stopPropagation();
+            if (window.getSelection) window.getSelection().removeAllRanges();
+            const now = Date.now();
+            logoTapTimestamps.push(now);
+            logoTapTimestamps = logoTapTimestamps.filter(t => now - t <= 4000);
+            if (logoTapTimestamps.length >= 5) {
+                logoTapTimestamps = [];
+                openAdminPortal();
+            }
+        });
+    }
+
+    // Method 2: Keyboard Shortcut (Ctrl + Shift + A)
+    document.addEventListener('keydown', function(e) {
+        if ((e.ctrlKey && e.shiftKey && (e.key === 'A' || e.key === 'a')) || (e.altKey && (e.key === 'A' || e.key === 'a'))) {
+            e.preventDefault();
+            openAdminPortal();
+        }
+    });
+
+    // Method 3: 5 Rapid taps anywhere on empty page space
+    document.addEventListener('click', function(e) {
+        if (e.target.closest('.modal-card') || e.target.closest('.action-btn') || e.target.closest('button')) return;
+        if (window.getSelection) window.getSelection().removeAllRanges();
 
         const now = Date.now();
         tapTimestamps.push(now);
-        // keep only taps within the last 10 seconds
-        tapTimestamps = tapTimestamps.filter(t => now - t <= 10000);
+        tapTimestamps = tapTimestamps.filter(t => now - t <= 4000);
 
-        if (tapTimestamps.length >= 10) {
+        if (tapTimestamps.length >= 5) {
             tapTimestamps = [];
             openAdminPortal();
         }
-    };
-
-    document.addEventListener('click', handleTap);
+    });
 }
 
 function openAdminPortal() {
