@@ -1,17 +1,54 @@
 {
   "ekycStatus": {
-    "total": 645072,
-    "completed": 508480,
-    "pending": 136592,
+    "total": 647394,
+    "completed": 508482,
+    "pending": 136594,
     "talukas": {
-      "सावंतवाडी": { "total": 105921, "completed": 88059, "pending": 17862 },
-      "वेंगुर्ला": { "total": 65685, "completed": 54454, "pending": 11231 },
-      "मालवण": { "total": 83698, "completed": 68309, "pending": 15389 },
-      "कणकवली": { "total": 103008, "completed": 81259, "pending": 21749 },
-      "देवगड": { "total": 94612, "completed": 72270, "pending": 22342 },
-      "वैभववाडी": { "total": 37457, "completed": 28458, "pending": 8999 },
-      "दोडामार्ग": { "total": 34102, "completed": 25863, "pending": 8239 },
-      "कुडाळ": { "total": 120589, "completed": 89808, "pending": 30781 }
+      "सावंतवाडी": {
+        "total": 105921,
+        "completed": 88059,
+        "pending": 17862
+      },
+      "वेंगुर्ला": {
+        "total": 65685,
+        "completed": 54454,
+        "pending": 11231
+      },
+      "मालवण": {
+        "total": 83698,
+        "completed": 68309,
+        "pending": 15389
+      },
+      "कणकवली": {
+        "total": 103008,
+        "completed": 81259,
+        "pending": 21749
+      },
+      "देवगड": {
+        "total": 94612,
+        "completed": 72270,
+        "pending": 22342
+      },
+      "वैभववाडी": {
+        "total": 37457,
+        "completed": 28458,
+        "pending": 8999
+      },
+      "दोडामार्ग": {
+        "total": 34102,
+        "completed": 25863,
+        "pending": 8239
+      },
+      "कुडाळ": {
+        "total": 120589,
+        "completed": 89808,
+        "pending": 30781
+      },
+      "kdsj": {
+        "total": 2322,
+        "completed": 2,
+        "pending": 2
+      }
     }
   },
   "fairPriceShops": {
@@ -19,33 +56,137 @@
     "active": 461,
     "beneficiaries": 0,
     "talukas": {
-      "Devgad": [{ "shopNumber": "दुकान क्रमांक १", "id": "FPS001", "status": "सक्रिय", "beneficiaries": 0, "lastUpdated": "२०२४-०१-१५" }],
-      "Dodamarg": [{ "shopNumber": "दुकान क्रमांक १", "id": "FPS002", "status": "सक्रिय", "beneficiaries": 0, "lastUpdated": "२०२४-०१-१४" }],
-      "Kankavli": [{ "shopNumber": "दुकान क्रमांक १", "id": "FPS003", "status": "सक्रिय", "beneficiaries": 0, "lastUpdated": "२०२४-०१-१६" }],
-      "Kudal": [{ "shopNumber": "दुकान क्रमांक १", "id": "FPS004", "status": "सक्रिय", "beneficiaries": 0, "lastUpdated": "२०२४-०१-१५" }],
-      "Malvan": [{ "shopNumber": "दुकान क्रमांक १", "id": "FPS005", "status": "सक्रिय", "beneficiaries": 0, "lastUpdated": "२०२४-०१-१७" }],
-      "Sawantwadi": [{ "shopNumber": "दुकान क्रमांक १", "id": "FPS006", "status": "सक्रिय", "beneficiaries": 0, "lastUpdated": "२०२४-०१-१०" }],
-      "Vaibhavwadi": [{ "shopNumber": "दुकान क्रमांक १", "id": "FPS007", "status": "सक्रिय", "beneficiaries": 0, "lastUpdated": "२०२४-०१-१६" }],
-      "Vengurla": [{ "shopNumber": "दुकान क्रमांक १", "id": "FPS008", "status": "सक्रिय", "beneficiaries": 0, "lastUpdated": "२०२४-०१-१५" }]
+      "Devgad": [
+        {
+          "shopNumber": "दुकान क्रमांक १",
+          "id": "FPS001",
+          "status": "सक्रिय",
+          "beneficiaries": 0,
+          "lastUpdated": "२०२४-०१-१५"
+        }
+      ],
+      "Dodamarg": [
+        {
+          "shopNumber": "दुकान क्रमांक १",
+          "id": "FPS002",
+          "status": "सक्रिय",
+          "beneficiaries": 0,
+          "lastUpdated": "२०२४-०१-१४"
+        }
+      ],
+      "Kankavli": [
+        {
+          "shopNumber": "दुकान क्रमांक १",
+          "id": "FPS003",
+          "status": "सक्रिय",
+          "beneficiaries": 0,
+          "lastUpdated": "२०२४-०१-१६"
+        }
+      ],
+      "Kudal": [
+        {
+          "shopNumber": "दुकान क्रमांक १",
+          "id": "FPS004",
+          "status": "सक्रिय",
+          "beneficiaries": 0,
+          "lastUpdated": "२०२४-०१-१५"
+        }
+      ],
+      "Malvan": [
+        {
+          "shopNumber": "दुकान क्रमांक १",
+          "id": "FPS005",
+          "status": "सक्रिय",
+          "beneficiaries": 0,
+          "lastUpdated": "२०२४-०१-१७"
+        }
+      ],
+      "Sawantwadi": [
+        {
+          "shopNumber": "दुकान क्रमांक १",
+          "id": "FPS006",
+          "status": "सक्रिय",
+          "beneficiaries": 0,
+          "lastUpdated": "२०२४-०१-१०"
+        }
+      ],
+      "Vaibhavwadi": [
+        {
+          "shopNumber": "दुकान क्रमांक १",
+          "id": "FPS007",
+          "status": "सक्रिय",
+          "beneficiaries": 0,
+          "lastUpdated": "२०२४-०१-१६"
+        }
+      ],
+      "Vengurla": [
+        {
+          "shopNumber": "दुकान क्रमांक १",
+          "id": "FPS008",
+          "status": "सक्रिय",
+          "beneficiaries": 0,
+          "lastUpdated": "२०२४-०१-१५"
+        }
+      ]
     }
   },
   "warehouseAndFoodSecurity": {
     "warehouses": [
-      { "id": 1, "name": "सावंतवाडी", "capacity": 500 },
-      { "id": 2, "name": "कुडाळ", "capacity": 1100 },
-      { "id": 3, "name": "वेंगुर्ला", "capacity": 1680 },
-      { "id": 4, "name": "कणकवली", "capacity": 1000 },
-      { "id": 5, "name": "मालवण", "capacity": 500 },
-      { "id": 6, "name": "आचरा", "capacity": 1000 },
-      { "id": 7, "name": "देवगड", "capacity": 1080 },
-      { "id": 8, "name": "विजयदुर्ग", "capacity": 600 },
-      { "id": 9, "name": "वैभववाडी", "capacity": 500 },
-      { "id": 10, "name": "दोडामार्ग", "capacity": 500 }
+      {
+        "id": 1,
+        "name": "सावंतवाडी",
+        "capacity": 500
+      },
+      {
+        "id": 2,
+        "name": "कुडाळ",
+        "capacity": 1100
+      },
+      {
+        "id": 3,
+        "name": "वेंगुर्ला",
+        "capacity": 1680
+      },
+      {
+        "id": 4,
+        "name": "कणकवली",
+        "capacity": 1000
+      },
+      {
+        "id": 5,
+        "name": "मालवण",
+        "capacity": 500
+      },
+      {
+        "id": 6,
+        "name": "आचरा",
+        "capacity": 1000
+      },
+      {
+        "id": 7,
+        "name": "देवगड",
+        "capacity": 1080
+      },
+      {
+        "id": 8,
+        "name": "विजयदुर्ग",
+        "capacity": 600
+      },
+      {
+        "id": 9,
+        "name": "वैभववाडी",
+        "capacity": 500
+      },
+      {
+        "id": 10,
+        "name": "दोडामार्ग",
+        "capacity": 500
+      }
     ],
     "totalCapacity": 8460,
     "rationCards": {
       "keroseneLicenseHolders": 330,
-      "totalRationCards": 229982,
+      "totalRationCards": 229979,
       "totalBeneficiaries": 148094,
       "categories": {
         "अंत्योदय (AAY)": 20690,
@@ -53,14 +194,118 @@
         "शुभ्र (White)": 21650
       },
       "talukaDataDetails": [
-        { "srNo": 1, "tfso": "VENGURLA", "aay_rcs": 1756, "aay_units": 7346, "apl_white_rcs": 2272, "apl_white_units": 7509, "phh_rcs": 15906, "phh_units": 58339, "nph_rcs": 3947, "nph_units": 11273, "total_rcs": 23881, "total_units": 84467 },
-        { "srNo": 2, "tfso": "SAWANTWADI", "aay_rcs": 3250, "aay_units": 11138, "apl_white_rcs": 3918, "apl_white_units": 13378, "phh_rcs": 24530, "phh_units": 94783, "nph_rcs": 6554, "nph_units": 19776, "total_rcs": 38252, "total_units": 139075 },
-        { "srNo": 3, "tfso": "KUDAL", "aay_rcs": 4974, "aay_units": 17039, "apl_white_rcs": 4611, "apl_white_units": 14731, "phh_rcs": 26937, "phh_units": 103550, "nph_rcs": 5183, "nph_units": 15005, "total_rcs": 41708, "total_units": 150333 },
-        { "srNo": 4, "tfso": "KANKAVLI", "aay_rcs": 4008, "aay_units": 13396, "apl_white_rcs": 4995, "apl_white_units": 13995, "phh_rcs": 23814, "phh_units": 89612, "nph_rcs": 6116, "nph_units": 17262, "total_rcs": 38933, "total_units": 134265 },
-        { "srNo": 5, "tfso": "MALVAN", "aay_rcs": 2792, "aay_units": 8913, "apl_white_rcs": 2716, "apl_white_units": 6711, "phh_rcs": 20300, "phh_units": 74785, "nph_rcs": 8455, "nph_units": 24825, "total_rcs": 34263, "total_units": 115234 },
-        { "srNo": 6, "tfso": "VAIBHAVWADI", "aay_rcs": 1565, "aay_units": 5125, "apl_white_rcs": 666, "apl_white_units": 1935, "phh_rcs": 8432, "phh_units": 32332, "nph_rcs": 905, "nph_units": 1951, "total_rcs": 11568, "total_units": 41343 },
-        { "srNo": 7, "tfso": "DEVGAD", "aay_rcs": 1518, "aay_units": 5721, "apl_white_rcs": 1591, "apl_white_units": 5203, "phh_rcs": 21305, "phh_units": 88891, "nph_rcs": 4200, "nph_units": 12428, "total_rcs": 28614, "total_units": 112243 },
-        { "srNo": 8, "tfso": "DODAMARG", "aay_rcs": 827, "aay_units": 2373, "apl_white_rcs": 881, "apl_white_units": 3090, "phh_rcs": 8616, "phh_units": 31729, "nph_rcs": 2439, "nph_units": 7959, "total_rcs": 12763, "total_units": 45151 }
+        {
+          "srNo": 1,
+          "tfso": "VENGURLA",
+          "aay_rcs": 1756,
+          "aay_units": 7346,
+          "apl_white_rcs": 2272,
+          "apl_white_units": 7509,
+          "phh_rcs": 15906,
+          "phh_units": 58339,
+          "nph_rcs": 3947,
+          "nph_units": 11273,
+          "total_rcs": 23881,
+          "total_units": 84467
+        },
+        {
+          "srNo": 2,
+          "tfso": "SAWANTWADI",
+          "aay_rcs": 3250,
+          "aay_units": 11138,
+          "apl_white_rcs": 3918,
+          "apl_white_units": 13378,
+          "phh_rcs": 24530,
+          "phh_units": 94783,
+          "nph_rcs": 6554,
+          "nph_units": 19776,
+          "total_rcs": 38252,
+          "total_units": 139075
+        },
+        {
+          "srNo": 3,
+          "tfso": "KUDAL",
+          "aay_rcs": 4974,
+          "aay_units": 17039,
+          "apl_white_rcs": 4611,
+          "apl_white_units": 14731,
+          "phh_rcs": 26937,
+          "phh_units": 103550,
+          "nph_rcs": 5183,
+          "nph_units": 15005,
+          "total_rcs": 41705,
+          "total_units": 150325
+        },
+        {
+          "srNo": 4,
+          "tfso": "KANKAVLI",
+          "aay_rcs": 4008,
+          "aay_units": 13396,
+          "apl_white_rcs": 4995,
+          "apl_white_units": 13995,
+          "phh_rcs": 23814,
+          "phh_units": 89612,
+          "nph_rcs": 6116,
+          "nph_units": 17262,
+          "total_rcs": 38933,
+          "total_units": 134265
+        },
+        {
+          "srNo": 5,
+          "tfso": "MALVAN",
+          "aay_rcs": 2792,
+          "aay_units": 8913,
+          "apl_white_rcs": 2716,
+          "apl_white_units": 6711,
+          "phh_rcs": 20300,
+          "phh_units": 74785,
+          "nph_rcs": 8455,
+          "nph_units": 24825,
+          "total_rcs": 34263,
+          "total_units": 115234
+        },
+        {
+          "srNo": 6,
+          "tfso": "VAIBHAVWADI",
+          "aay_rcs": 1565,
+          "aay_units": 5125,
+          "apl_white_rcs": 666,
+          "apl_white_units": 1935,
+          "phh_rcs": 8432,
+          "phh_units": 32332,
+          "nph_rcs": 905,
+          "nph_units": 1951,
+          "total_rcs": 11568,
+          "total_units": 41343
+        },
+        {
+          "srNo": 7,
+          "tfso": "DEVGAD",
+          "aay_rcs": 1518,
+          "aay_units": 5721,
+          "apl_white_rcs": 1591,
+          "apl_white_units": 5203,
+          "phh_rcs": 21305,
+          "phh_units": 88891,
+          "nph_rcs": 4200,
+          "nph_units": 12428,
+          "total_rcs": 28614,
+          "total_units": 112243
+        },
+        {
+          "srNo": 8,
+          "tfso": "DODAMARG",
+          "aay_rcs": 827,
+          "aay_units": 2373,
+          "apl_white_rcs": 881,
+          "apl_white_units": 3090,
+          "phh_rcs": 8616,
+          "phh_units": 31729,
+          "nph_rcs": 2439,
+          "nph_units": 7959,
+          "total_rcs": 12763,
+          "total_units": 45151
+        }
       ]
     }
   },
