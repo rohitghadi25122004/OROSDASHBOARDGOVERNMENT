@@ -396,8 +396,8 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
-            <p>© २०२४ जिल्हाधिकारी कार्यालय सिंधुदुर्ग पुर्वथा शाखा. सर्व हक्क सुरक्षित.</p>
-            <p>महाराष्ट्र शासन द्वारे संचलित</p>
+            <p>© <span id="displayFooterYear">२०२६</span> <span id="displayFooterText">जिल्हाधिकारी कार्यालय सिंधुदुर्ग पुरवठा शाखा. सर्व हक्क सुरक्षित.</span></p>
+            <p id="displayFooterSubText">महाराष्ट्र शासन द्वारे संचलित</p>
         </div>
     </footer>
 
@@ -567,6 +567,24 @@
                             <input type="password" id="githubTokenInput" placeholder="ghp_... किंवा github_pat_...">
                         </div>
                         <button class="btn-admin btn-success" onclick="saveGitHubConfig()"><i class="fas fa-save"></i> टोकन जतन करा (Save Token)</button>
+                    </div>
+
+                    <div style="background: #f8fafc; border: 1px solid #e2e8f0; padding: 1.25rem; border-radius: 8px; margin-bottom: 1.5rem;">
+                        <h5 style="color: #1e293b; margin-top: 0; font-size: 1rem;"><i class="fas fa-copyright"></i> फूटर मजकूर व वर्ष संपादन (Footer Info)</h5>
+                        <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 1rem;">
+                            <div class="admin-input-group">
+                                <label for="adminFooterYear">फूटर वर्ष (Year):</label>
+                                <input type="text" id="adminFooterYear" placeholder="२०२६">
+                            </div>
+                            <div class="admin-input-group">
+                                <label for="adminFooterText">फूटर मजकूर (Main Text):</label>
+                                <input type="text" id="adminFooterText" placeholder="जिल्हाधिकारी कार्यालय सिंधुदुर्ग पुरवठा शाखा. सर्व हक्क सुरक्षित.">
+                            </div>
+                        </div>
+                        <div class="admin-input-group">
+                            <label for="adminFooterSubText">फूटर उप-मजकूर (Sub Text):</label>
+                            <input type="text" id="adminFooterSubText" placeholder="महाराष्ट्र शासन द्वारे संचलित">
+                        </div>
                     </div>
 
                     <div style="background: #fff5f5; border: 1px solid #fed7d7; padding: 1.25rem; border-radius: 8px; margin-bottom: 1rem;">

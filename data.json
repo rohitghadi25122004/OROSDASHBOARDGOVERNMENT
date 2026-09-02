@@ -63,5 +63,10 @@
         { "srNo": 8, "tfso": "DODAMARG", "aay_rcs": 827, "aay_units": 2373, "apl_white_rcs": 881, "apl_white_units": 3090, "phh_rcs": 8616, "phh_units": 31729, "nph_rcs": 2439, "nph_units": 7959, "total_rcs": 12763, "total_units": 45151 }
       ]
     }
+  },
+  "siteInfo": {
+    "footerYear": "२०२६",
+    "footerText": "जिल्हाधिकारी कार्यालय सिंधुदुर्ग पुरवठा शाखा. सर्व हक्क सुरक्षित.",
+    "footerSubText": "महाराष्ट्र शासन द्वारे संचलित"
   }
 }

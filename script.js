@@ -71,6 +71,11 @@ const defaultSampleData = {
                 { 'srNo': 8, 'tfso': 'DODAMARG', 'aay_rcs': 827, 'aay_units': 2373, 'apl_white_rcs': 881, 'apl_white_units': 3090, 'phh_rcs': 8616, 'phh_units': 31729, 'nph_rcs': 2439, 'nph_units': 7959, 'total_rcs': 12570, 'total_units': 44581 }
             ]
         }
+    },
+    siteInfo: {
+        footerYear: '२०२६',
+        footerText: 'जिल्हाधिकारी कार्यालय सिंधुदुर्ग पुरवठा शाखा. सर्व हक्क सुरक्षित.',
+        footerSubText: 'महाराष्ट्र शासन द्वारे संचलित'
     }
 };
 
@@ -118,6 +123,18 @@ function initializeDashboard() {
     initializeFairPriceSection();
     initializeWarehouseCapacitySection();
     initializeRationCardStatusSection();
+    updateFooterElements();
+}
+
+function updateFooterElements() {
+    const info = (sampleData && sampleData.siteInfo) || (defaultSampleData && defaultSampleData.siteInfo) || {};
+    const yrEl = document.getElementById('displayFooterYear');
+    const txtEl = document.getElementById('displayFooterText');
+    const subEl = document.getElementById('displayFooterSubText');
+
+    if (yrEl) yrEl.textContent = info.footerYear || '२०२६';
+    if (txtEl) txtEl.textContent = info.footerText || 'जिल्हाधिकारी कार्यालय सिंधुदुर्ग पुरवठा शाखा. सर्व हक्क सुरक्षित.';
+    if (subEl) subEl.textContent = info.footerSubText || 'महाराष्ट्र शासन द्वारे संचलित';
 }
 
 function setupEventListeners() {
@@ -978,6 +995,12 @@ function openAdminPanelModal() {
     loadGitHubConfig();
     document.getElementById('adminFpsTotal').value = sampleData.fairPriceShops.total;
     document.getElementById('adminFpsActive').value = sampleData.fairPriceShops.active;
+
+    const info = (sampleData && sampleData.siteInfo) || (defaultSampleData && defaultSampleData.siteInfo) || {};
+    if (document.getElementById('adminFooterYear')) document.getElementById('adminFooterYear').value = info.footerYear || '२०२६';
+    if (document.getElementById('adminFooterText')) document.getElementById('adminFooterText').value = info.footerText || 'जिल्हाधिकारी कार्यालय सिंधुदुर्ग पुरवठा शाखा. सर्व हक्क सुरक्षित.';
+    if (document.getElementById('adminFooterSubText')) document.getElementById('adminFooterSubText').value = info.footerSubText || 'महाराष्ट्र शासन द्वारे संचलित';
+
     document.getElementById('adminPanelModal').classList.add('active');
 }
 
@@ -1201,6 +1224,17 @@ function saveAdminChanges() {
 
     sampleData.warehouseAndFoodSecurity.warehouses = newWarehouses;
     sampleData.warehouseAndFoodSecurity.totalCapacity = totWhCap;
+
+    // 5. Site Info & Footer Text
+    const yrVal = document.getElementById('adminFooterYear') ? document.getElementById('adminFooterYear').value.trim() : '२०२६';
+    const txtVal = document.getElementById('adminFooterText') ? document.getElementById('adminFooterText').value.trim() : 'जिल्हाधिकारी कार्यालय सिंधुदुर्ग पुरवठा शाखा. सर्व हक्क सुरक्षित.';
+    const subVal = document.getElementById('adminFooterSubText') ? document.getElementById('adminFooterSubText').value.trim() : 'महाराष्ट्र शासन द्वारे संचलित';
+
+    sampleData.siteInfo = {
+        footerYear: yrVal || '२०२६',
+        footerText: txtVal || 'जिल्हाधिकारी कार्यालय सिंधुदुर्ग पुरवठा शाखा. सर्व हक्क सुरक्षित.',
+        footerSubText: subVal || 'महाराष्ट्र शासन द्वारे संचलित'
+    };
 
     // Persist & Refresh Dashboard UI
     persistDashboardData();
