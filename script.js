@@ -131,9 +131,13 @@ function setupEventListeners() {
     });
 
     // Mobile Navigation Toggle
-    document.getElementById('navToggle').addEventListener('click', function() {
-        document.getElementById('navigation').classList.toggle('mobile-open');
-    });
+    const navToggle = document.getElementById('navToggle');
+    if (navToggle) {
+        navToggle.addEventListener('click', function() {
+            const nav = document.getElementById('navigation');
+            if (nav) nav.classList.toggle('mobile-open');
+        });
+    }
 }
 
 function navigateToSection(sectionId) {
