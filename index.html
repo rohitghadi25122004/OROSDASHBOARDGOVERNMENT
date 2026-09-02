@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="mr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
     <!-- Header -->
     <header class="header">
@@ -61,7 +63,7 @@
             <li class="nav-item">
                 <a href="#fair-price" class="nav-link">
                     <i class="fas fa-store"></i>
-                    <span>ऑनलाईन फेअर प्राईस शॉप</span>
+                    <span>रास्त भाव धान्य दुकाने</span>
                 </a>
             </li>
             <li class="nav-item">
@@ -118,7 +120,7 @@
                             <i class="fas fa-store"></i>
                         </div>
                         <div class="stat-content">
-                            <h3>ऑनलाईन फेअर प्राईस शॉप</h3>
+                            <h3>रास्त भाव धान्य दुकाने</h3>
                             <p class="stat-number" id="totalShops">0</p>
                         </div>
                     </div>
@@ -135,7 +137,7 @@
                         </button>
                         <button class="action-btn" onclick="navigateToSection('fair-price')">
                             <i class="fas fa-store"></i>
-                            ऑनलाईन फेअर प्राईस शॉप
+                            रास्त भाव धान्य दुकाने
                         </button>
                         <button class="action-btn" onclick="navigateToSection('warehouse-capacity')">
                             <i class="fas fa-warehouse"></i>
@@ -218,13 +220,13 @@
         <!-- Fair Price Shop Section -->
         <section id="fair-price" class="dashboard-section">
             <div class="section-header">
-                <h2>तालुकानुसार ऑनलाईन फेअर प्राईस शॉप डॅशबोर्ड</h2>
+                <h2>तालुकानिहाय रास्त भाव धान्य दुकाने डॅशबोर्ड</h2>
             </div>
 
             <div class="dashboard-grid">
                 <div class="chart-container">
                     <div class="chart-card">
-                        <h3>ऑनलाईन फेअर प्राईस शॉप वितरण</h3>
+                        <h3>रास्त भाव धान्य दुकाने वितरण</h3>
                         <div class="chart-wrapper">
                             <canvas id="fairPriceChart"></canvas>
                         </div>
@@ -233,7 +235,7 @@
 
                 <div class="chart-container">
                     <div class="chart-card">
-                        <h3>तालुकानुसार ऑनलाईन दुकाने</h3>
+                        <h3>तालुकानिहाय रास्त भाव धान्य दुकाने</h3>
                         <div class="chart-wrapper">
                             <canvas id="shopPerformanceChart"></canvas>
                         </div>
@@ -246,7 +248,7 @@
                             <i class="fas fa-store"></i>
                         </div>
                         <div class="stat-content">
-                            <h3>एकूण ऑनलाईन दुकाने</h3>
+                            <h3>एकूण रास्त भाव धान्य दुकाने</h3>
                             <p class="stat-number" id="totalShopCount">0</p>
                         </div>
                     </div>
@@ -396,7 +398,8 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
-            <p>© <span id="displayFooterYear">२०२६</span> <span id="displayFooterText">जिल्हाधिकारी कार्यालय सिंधुदुर्ग पुरवठा शाखा. सर्व हक्क सुरक्षित.</span></p>
+            <p>© <span id="displayFooterYear">२०२६</span> <span id="displayFooterText">जिल्हाधिकारी कार्यालय सिंधुदुर्ग
+                    पुरवठा शाखा. सर्व हक्क सुरक्षित.</span></p>
             <p id="displayFooterSubText">महाराष्ट्र शासन द्वारे संचलित</p>
         </div>
     </footer>
@@ -413,14 +416,16 @@
                     <p>प्रशासकीय पॅनेलमध्ये प्रवेश करण्यासाठी पासवर्ड प्रविष्ट करा.</p>
                     <div class="admin-input-group">
                         <label for="adminPasswordInput">प्रशासक पासवर्ड (Password):</label>
-                        <input type="password" id="adminPasswordInput" placeholder="पासवर्ड प्रविष्ट करा..." onkeyup="handlePasswordKeyUp(event)">
+                        <input type="password" id="adminPasswordInput" placeholder="पासवर्ड प्रविष्ट करा..."
+                            onkeyup="handlePasswordKeyUp(event)">
                         <div class="login-error" id="adminLoginError">अवैध पासवर्ड! कृपया पुन्हा प्रयत्न करा.</div>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
                 <button class="btn-admin btn-secondary" onclick="closeAdminLoginModal()">रद्द करा</button>
-                <button class="btn-admin btn-primary" onclick="verifyAdminPassword()"><i class="fas fa-unlock"></i> लॉगिन करा</button>
+                <button class="btn-admin btn-primary" onclick="verifyAdminPassword()"><i class="fas fa-unlock"></i>
+                    लॉगिन करा</button>
             </div>
         </div>
     </div>
@@ -442,7 +447,7 @@
                         <i class="fas fa-id-card"></i> शिधापत्रिका माहिती
                     </button>
                     <button class="admin-tab-btn" onclick="switchAdminTab('admin-fps')">
-                        <i class="fas fa-store"></i> ऑनलाईन दुकाने
+                        <i class="fas fa-store"></i> रास्त भाव धान्य दुकाने
                     </button>
                     <button class="admin-tab-btn" onclick="switchAdminTab('admin-warehouse')">
                         <i class="fas fa-warehouse"></i> गोदाम क्षमता
@@ -457,7 +462,8 @@
                     <div class="admin-crud-header">
                         <h4>तालुकानिहाय eKYC माहिती संपादन (CRUD)</h4>
                         <div class="crud-btn-group">
-                            <button class="btn-admin btn-success" onclick="addAdminEkycRow()"><i class="fas fa-plus"></i> नवीन तालुका जोडा</button>
+                            <button class="btn-admin btn-success" onclick="addAdminEkycRow()"><i
+                                    class="fas fa-plus"></i> नवीन तालुका जोडा</button>
                         </div>
                     </div>
                     <div class="admin-table-wrapper">
@@ -483,7 +489,8 @@
                     <div class="admin-crud-header">
                         <h4>तालुकानिहाय शिधापत्रिका व युनिट्स माहिती संपादन</h4>
                         <div class="crud-btn-group">
-                            <button class="btn-admin btn-success" onclick="addAdminRationRow()"><i class="fas fa-plus"></i> नवीन TFSO तालुका जोडा</button>
+                            <button class="btn-admin btn-success" onclick="addAdminRationRow()"><i
+                                    class="fas fa-plus"></i> नवीन TFSO तालुका जोडा</button>
                         </div>
                     </div>
                     <div class="admin-table-wrapper">
@@ -512,7 +519,7 @@
                 <!-- Tab 3: Fair Price Shops CRUD -->
                 <div class="admin-tab-content" id="admin-fps">
                     <div class="admin-crud-header">
-                        <h4>ऑनलाईन फेअर प्राईस शॉप माहिती</h4>
+                        <h4>रास्त भाव धान्य दुकाने माहिती</h4>
                     </div>
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
                         <div class="admin-input-group">
@@ -531,7 +538,8 @@
                     <div class="admin-crud-header">
                         <h4>गोदाम क्षमता संपादन (CRUD)</h4>
                         <div class="crud-btn-group">
-                            <button class="btn-admin btn-success" onclick="addAdminWarehouseRow()"><i class="fas fa-plus"></i> नवीन गोदाम जोडा</button>
+                            <button class="btn-admin btn-success" onclick="addAdminWarehouseRow()"><i
+                                    class="fas fa-plus"></i> नवीन गोदाम जोडा</button>
                         </div>
                     </div>
                     <div class="admin-table-wrapper">
@@ -557,23 +565,31 @@
                         <h4><i class="fab fa-github"></i> लाईव्ह अपडेट कॉन्फिगरेशन (GitHub Token)</h4>
                     </div>
 
-                    <div style="background: #f0fdf4; border: 1px solid #bbf7d0; padding: 1.25rem; border-radius: 8px; margin-bottom: 1.5rem;">
-                        <h5 style="color: #166534; margin-top: 0; font-size: 1rem;"><i class="fas fa-key"></i> GitHub Access Token</h5>
+                    <div
+                        style="background: #f0fdf4; border: 1px solid #bbf7d0; padding: 1.25rem; border-radius: 8px; margin-bottom: 1.5rem;">
+                        <h5 style="color: #166534; margin-top: 0; font-size: 1rem;"><i class="fas fa-key"></i> GitHub
+                            Access Token</h5>
                         <p style="color: #15803d; font-size: 0.88rem; margin-bottom: 1rem;">
-                            इथे फक्त तुमचा <b>GitHub Access Token</b> पेस्ट करा. एकदा पेस्ट केल्यानंतर, तुम्ही जेव्हा जेव्हा <b>'बदल जतन करा (Save Changes)'</b> क्लिक कराल, तेव्हा सर्व बदल आपोआप लाईव्ह वेबसाईटवर अपडेट होतील!
+                            इथे फक्त तुमचा <b>GitHub Access Token</b> पेस्ट करा. एकदा पेस्ट केल्यानंतर, तुम्ही जेव्हा
+                            जेव्हा <b>'बदल जतन करा (Save Changes)'</b> क्लिक कराल, तेव्हा सर्व बदल आपोआप लाईव्ह
+                            वेबसाईटवर अपडेट होतील!
                         </p>
                         <div class="admin-input-group">
                             <label for="githubTokenInput">GitHub Access Token:</label>
                             <input type="password" id="githubTokenInput" placeholder="ghp_... किंवा github_pat_...">
                         </div>
-                        <button class="btn-admin btn-success" onclick="saveGitHubConfig()"><i class="fas fa-save"></i> टोकन जतन करा (Save Token)</button>
+                        <button class="btn-admin btn-success" onclick="saveGitHubConfig()"><i class="fas fa-save"></i>
+                            टोकन जतन करा (Save Token)</button>
                     </div>
 
-                    <div style="background: #f8fafc; border: 1px solid #e2e8f0; padding: 1.25rem; border-radius: 8px; margin-bottom: 1.5rem;">
-                        <h5 style="color: #1e293b; margin-top: 0; font-size: 1rem;"><i class="fas fa-calendar-alt"></i> तारीख व फूटर मजकूर संपादन (Header Date & Footer)</h5>
+                    <div
+                        style="background: #f8fafc; border: 1px solid #e2e8f0; padding: 1.25rem; border-radius: 8px; margin-bottom: 1.5rem;">
+                        <h5 style="color: #1e293b; margin-top: 0; font-size: 1rem;"><i class="fas fa-calendar-alt"></i>
+                            तारीख व फूटर मजकूर संपादन (Header Date & Footer)</h5>
                         <div class="admin-input-group">
                             <label for="adminHeaderDate">अद्यतनित तारीख (Header Date Override):</label>
-                            <input type="text" id="adminHeaderDate" placeholder="उदा: २ सप्टेंबर, २०२६ (खालील बॉक्स रिकामे ठेवल्यास आजची तारीख आपोआप दिसेल)">
+                            <input type="text" id="adminHeaderDate"
+                                placeholder="उदा: २ सप्टेंबर, २०२६ (खालील बॉक्स रिकामे ठेवल्यास आजची तारीख आपोआप दिसेल)">
                         </div>
                         <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 1rem;">
                             <div class="admin-input-group">
@@ -582,7 +598,8 @@
                             </div>
                             <div class="admin-input-group">
                                 <label for="adminFooterText">फूटर मजकूर (Main Text):</label>
-                                <input type="text" id="adminFooterText" placeholder="जिल्हाधिकारी कार्यालय सिंधुदुर्ग पुरवठा शाखा. सर्व हक्क सुरक्षित.">
+                                <input type="text" id="adminFooterText"
+                                    placeholder="जिल्हाधिकारी कार्यालय सिंधुदुर्ग पुरवठा शाखा. सर्व हक्क सुरक्षित.">
                             </div>
                         </div>
                         <div class="admin-input-group">
@@ -591,17 +608,22 @@
                         </div>
                     </div>
 
-                    <div style="background: #fff5f5; border: 1px solid #fed7d7; padding: 1.25rem; border-radius: 8px; margin-bottom: 1rem;">
-                        <h5 style="color: #c53030; margin-top: 0;"><i class="fas fa-exclamation-triangle"></i> मूळ डेटा पुनर्संचयित करा (Reset to Default)</h5>
-                        <p style="color: #742a2a; font-size: 0.9rem;">सर्व बदललेले अपडेट्स हटवून मूळ डेटा पुनर्स्थापित करा.</p>
-                        <button class="btn-admin btn-danger" onclick="resetAdminData()"><i class="fas fa-undo"></i> मूळ स्थितीत रीसेट करा</button>
+                    <div
+                        style="background: #fff5f5; border: 1px solid #fed7d7; padding: 1.25rem; border-radius: 8px; margin-bottom: 1rem;">
+                        <h5 style="color: #c53030; margin-top: 0;"><i class="fas fa-exclamation-triangle"></i> मूळ डेटा
+                            पुनर्संचयित करा (Reset to Default)</h5>
+                        <p style="color: #742a2a; font-size: 0.9rem;">सर्व बदललेले अपडेट्स हटवून मूळ डेटा पुनर्स्थापित
+                            करा.</p>
+                        <button class="btn-admin btn-danger" onclick="resetAdminData()"><i class="fas fa-undo"></i> मूळ
+                            स्थितीत रीसेट करा</button>
                     </div>
                 </div>
             </div>
 
             <div class="modal-footer">
                 <button class="btn-admin btn-secondary" onclick="closeAdminPanelModal()">बंद करा</button>
-                <button class="btn-admin btn-primary" onclick="saveAdminChanges()"><i class="fas fa-save"></i> बदल जतन करा (Save Changes)</button>
+                <button class="btn-admin btn-primary" onclick="saveAdminChanges()"><i class="fas fa-save"></i> बदल जतन
+                    करा (Save Changes)</button>
             </div>
         </div>
     </div>
@@ -611,4 +633,5 @@
 
     <script src="./script.js"></script>
 </body>
+
 </html>
