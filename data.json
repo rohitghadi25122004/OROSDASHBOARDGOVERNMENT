@@ -1,8 +1,8 @@
 {
   "ekycStatus": {
     "total": 645072,
-    "completed": 508671,
-    "pending": 136401,
+    "completed": 508480,
+    "pending": 136592,
     "talukas": {
       "सावंतवाडी": {
         "total": 105921,
@@ -41,8 +41,8 @@
       },
       "कुडाळ": {
         "total": 120589,
-        "completed": 89999,
-        "pending": 30590
+        "completed": 89808,
+        "pending": 30781
       }
     }
   },
