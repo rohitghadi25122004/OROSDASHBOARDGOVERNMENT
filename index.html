@@ -17,7 +17,7 @@
             <div class="header-left">
                 <img src="./sindhudurg_logo.png" alt="सिंधुदुर्ग जिल्हा लोगो" class="logo">
                 <div class="header-text">
-                    <h1>जिल्हाधिकारी कार्यालय सिंधुदुर्ग पुरवठा शाखा</h1>
+                    <h1>जिल्हाधिकारी कार्यालय सिंधुदुर्ग (पुरवठा शाखा)</h1>
                     <p>महाराष्ट्र शासन</p>
                 </div>
             </div>
@@ -85,48 +85,6 @@
     <main class="main-content">
         <!-- Main Dashboard Section -->
         <section id="main-dashboard" class="dashboard-section active">
-            <div class="section-header">
-                <h2>अवलोकन डॅशबोर्ड</h2>
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <div class="stat-icon">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <div class="stat-content">
-                            <h3>एकूण eKYC</h3>
-                            <p class="stat-number" id="totalEkyc">0</p>
-                        </div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-icon">
-                            <i class="fas fa-check-circle"></i>
-                        </div>
-                        <div class="stat-content">
-                            <h3>पूर्ण झाले</h3>
-                            <p class="stat-number" id="completedEkyc">0</p>
-                        </div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-icon">
-                            <i class="fas fa-clock"></i>
-                        </div>
-                        <div class="stat-content">
-                            <h3>प्रलंबित</h3>
-                            <p class="stat-number" id="pendingEkyc">0</p>
-                        </div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-icon">
-                            <i class="fas fa-store"></i>
-                        </div>
-                        <div class="stat-content">
-                            <h3>रास्त भाव धान्य दुकाने</h3>
-                            <p class="stat-number" id="totalShops">0</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
             <div class="dashboard-grid">
                 <div class="dashboard-card">
                     <h3>शीघ्र कृती</h3>
@@ -153,7 +111,7 @@
                 <div class="dashboard-card">
                     <h3>विभागीय माहिती</h3>
                     <div class="department-info">
-                        <p><strong>विभाग:</strong> जिल्हाधिकारी कार्यालय</p>
+                        <p><strong>विभाग:</strong>अन्न, नागरी पुरवठा व ग्राहक संरक्षण विभाग</p>
                         <p><strong>जिल्हा:</strong> सिंधुदुर्ग</p>
                         <p><strong>राज्य:</strong> महाराष्ट्र</p>
                         <p><strong>कार्यक्षेत्र:</strong> ८ तालुके</p>
@@ -166,12 +124,47 @@
         <section id="ekyc-status" class="dashboard-section">
             <div class="section-header">
                 <h2>eKYC स्थिती: प्रलंबित विरुद्ध पूर्ण झाले</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>एकूण eKYC</h3>
+                            <p class="stat-number" id="ekycTotal">0</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>पूर्ण झाले</h3>
+                            <p class="stat-number">
+                                <span id="ekycCompleted">0</span>
+                                <span class="stat-pct success" id="ekycCompletedPct">0%</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>प्रलंबित</h3>
+                            <p class="stat-number">
+                                <span id="ekycPending">0</span>
+                                <span class="stat-pct warning" id="ekycPendingPct">0%</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="dashboard-grid">
                 <div class="chart-container">
                     <div class="chart-card">
-                        <h3>eKYC पूर्णता अवलोकन</h3>
+                        <h3>eKYC स्थिती</h3>
                         <div class="chart-wrapper">
                             <canvas id="ekycPieChart"></canvas>
                         </div>
@@ -180,7 +173,7 @@
 
                 <div class="chart-container full-width">
                     <div class="chart-card">
-                        <h3>तालुकानुसार तुलना</h3>
+                        <h3> तालुकानिहाय तुलना</h3>
                         <div class="chart-wrapper">
                             <canvas id="ekycBarChart"></canvas>
                         </div>
@@ -220,7 +213,7 @@
         <!-- Fair Price Shop Section -->
         <section id="fair-price" class="dashboard-section">
             <div class="section-header">
-                <h2>तालुकानिहाय रास्त भाव धान्य दुकाने डॅशबोर्ड</h2>
+                <h2>तालुकानिहाय रास्त भाव धान्य दुकाने</h2>
             </div>
 
             <div class="dashboard-grid">
@@ -295,7 +288,7 @@
                         <i class="fas fa-weight"></i>
                     </div>
                     <div class="stat-content">
-                        <h3>एकूण क्षमता</h3>
+                        <h3>एकूण क्षमता(मे.टन)</h3>
                         <p class="stat-number" id="totalCapacity">8,460</p>
                     </div>
                 </div>

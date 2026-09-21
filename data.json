@@ -1,8 +1,8 @@
 {
   "ekycStatus": {
-    "total": 645195,
-    "completed": 508602,
-    "pending": 136593,
+    "total": 645072,
+    "completed": 508480,
+    "pending": 136592,
     "talukas": {
       "सावंतवाडी": {
         "total": 105921,
@@ -43,11 +43,6 @@
         "total": 120589,
         "completed": 89808,
         "pending": 30781
-      },
-      "adesh": {
-        "total": 123,
-        "completed": 122,
-        "pending": 1
       }
     }
   },

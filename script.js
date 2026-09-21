@@ -83,6 +83,16 @@ const defaultSampleData = {
 let sampleData = loadDashboardData();
 
 async function loadDashboardData() {
+    try {
+        const response = await fetch('./data.json?t=' + Date.now());
+        if (response.ok) {
+            const fetchedData = await response.json();
+            localStorage.setItem('supply_dashboard_data', JSON.stringify(fetchedData));
+            return fetchedData;
+        }
+    } catch (e) {
+        console.warn('Could not fetch data.json, checking localStorage or defaultSampleData:', e);
+    }
     const saved = localStorage.getItem('supply_dashboard_data');
     if (saved) {
         try {
@@ -90,15 +100,6 @@ async function loadDashboardData() {
         } catch (e) {
             console.error('Failed to parse saved dashboard data:', e);
         }
-    }
-    try {
-        const response = await fetch('./data.json');
-        if (response.ok) {
-            const fetchedData = await response.json();
-            return fetchedData;
-        }
-    } catch (e) {
-        console.warn('Could not fetch data.json, falling back to defaultSampleData:', e);
     }
     return JSON.parse(JSON.stringify(defaultSampleData));
 }
@@ -247,15 +248,53 @@ function updateDateTime() {
 
 // Main Dashboard Functions
 function updateMainDashboardStats() {
-    document.getElementById('totalEkyc').textContent = sampleData.ekycStatus.total.toLocaleString();
-    document.getElementById('completedEkyc').textContent = sampleData.ekycStatus.completed.toLocaleString();
-    document.getElementById('pendingEkyc').textContent = sampleData.ekycStatus.pending.toLocaleString();
-    document.getElementById('totalShops').textContent = sampleData.fairPriceShops.total.toLocaleString();
+    const total = sampleData?.ekycStatus?.total || 0;
+    const completed = sampleData?.ekycStatus?.completed || 0;
+    const pending = sampleData?.ekycStatus?.pending || 0;
+
+    const completedPct = total > 0 ? ((completed / total) * 100).toFixed(2) + '%' : '0%';
+    const pendingPct = total > 0 ? ((pending / total) * 100).toFixed(2) + '%' : '0%';
+
+    const elTotal = document.getElementById('totalEkyc');
+    const elCompleted = document.getElementById('completedEkyc');
+    const elCompletedPct = document.getElementById('completedEkycPct');
+    const elPending = document.getElementById('pendingEkyc');
+    const elPendingPct = document.getElementById('pendingEkycPct');
+    const elShops = document.getElementById('totalShops');
+
+    if (elTotal) elTotal.textContent = total.toLocaleString();
+    if (elCompleted) elCompleted.textContent = completed.toLocaleString();
+    if (elCompletedPct) elCompletedPct.textContent = completedPct;
+    if (elPending) elPending.textContent = pending.toLocaleString();
+    if (elPendingPct) elPendingPct.textContent = pendingPct;
+    if (elShops) elShops.textContent = (sampleData?.fairPriceShops?.total || 0).toLocaleString();
 }
 
 // eKYC Status Section Functions
 function initializeEkycStatusSection() {
+    updateEkycStatusCards();
     populateEkycStatusTable();
+}
+
+function updateEkycStatusCards() {
+    const total = sampleData?.ekycStatus?.total || 0;
+    const completed = sampleData?.ekycStatus?.completed || 0;
+    const pending = sampleData?.ekycStatus?.pending || 0;
+
+    const completedPct = total > 0 ? ((completed / total) * 100).toFixed(2) + '%' : '0%';
+    const pendingPct = total > 0 ? ((pending / total) * 100).toFixed(2) + '%' : '0%';
+
+    const elTotal = document.getElementById('ekycTotal');
+    const elCompleted = document.getElementById('ekycCompleted');
+    const elCompletedPct = document.getElementById('ekycCompletedPct');
+    const elPending = document.getElementById('ekycPending');
+    const elPendingPct = document.getElementById('ekycPendingPct');
+
+    if (elTotal) elTotal.textContent = total.toLocaleString();
+    if (elCompleted) elCompleted.textContent = completed.toLocaleString();
+    if (elCompletedPct) elCompletedPct.textContent = completedPct;
+    if (elPending) elPending.textContent = pending.toLocaleString();
+    if (elPendingPct) elPendingPct.textContent = pendingPct;
 }
 
 function populateEkycStatusTable() {
@@ -310,12 +349,13 @@ function initializeEkycCharts() {
         options: {
             responsive: true,
             maintainAspectRatio: false,
+            cutout: '40%',
             plugins: {
                 legend: {
                     position: 'bottom',
                     labels: {
                         padding: 20,
-                        font: { size: 14 }
+                        font: { size: 15, weight: 'bold' }
                     }
                 },
                 tooltip: {
@@ -334,14 +374,14 @@ function initializeEkycCharts() {
                     color: '#fff',
                     font: {
                         weight: 'bold',
-                        size: 8
+                        size: 15
                     },
                     formatter: (value, ctx) => {
                         const total = ctx.dataset.data.reduce((a, b) => a + b, 0);
                         const percentage = ((value / total) * 100).toFixed(1);
                         return `${value.toLocaleString()}\n(${percentage}%)`;
                     },
-                    padding: 4,
+                    padding: 6,
                     anchor: 'center',
                     align: 'center',
                     textAlign: 'center'
